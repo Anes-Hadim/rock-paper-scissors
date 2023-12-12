@@ -19,7 +19,17 @@
   game('Scissors');
   ">
   Scissors</button>
+  <button onclick="
+    score.wins=0;
+    score.losses=0;
+    score.ties=0;
+  ">Reset Score</button>
   <script>
+    const score = {
+      wins: 0 ,
+      losses: 0 ,
+      ties: 0 ,
+    };
     function compchoise() {
       const rand=Math.random();
       let computerchoise;
@@ -61,7 +71,16 @@
           result='tie'
         }
       }
-      alert(`your choise was ${playerMove}, computer choise was ${computerchoise}, ${result}.`);
+
+      if (result==='you won') {
+        score.wins++;
+      } else if (result==='you lost') {
+        score.losses++;
+      } else if (result==='tie') {
+        score.ties++;
+      }
+      alert(`your choise was ${playerMove}, computer choise was ${computerchoise}, ${result}.
+Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
     } 
   </script>
 </body>

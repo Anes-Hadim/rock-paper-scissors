@@ -21,15 +21,20 @@
   Scissors</button>
   <button onclick="
     score.wins=0;
-    score.losses=0;
+    score.losses=0; //set the live score to zero
     score.ties=0;
+    localStorage.removeItem('score'); // and destroy the local storage in case of direct refresh 
   ">Reset Score</button>
   <script>
-    const score = {
-      wins: 0 ,
-      losses: 0 ,
-      ties: 0 ,
-    };
+    let score =JSON.parse(localStorage.getItem('score')) // set to the local storge even if null
+
+    if (score===null) { // null --> var not exist
+      score={
+        wins: 0 ,
+        losses: 0 , // initialize to zero if there no local storage(null)
+        ties: 0
+      };
+    }
     function compchoise() {
       const rand=Math.random();
       let computerchoise;
@@ -79,6 +84,9 @@
       } else if (result==='tie') {
         score.ties++;
       }
+
+      localStorage.setItem('score',JSON.stringify(score));
+
       alert(`your choise was ${playerMove}, computer choise was ${computerchoise}, ${result}.
 Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
     } 

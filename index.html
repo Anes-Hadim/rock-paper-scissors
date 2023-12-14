@@ -19,11 +19,17 @@
   game('Scissors');
   ">
   Scissors</button>
+  <p class="result"></p>
+  <p style="white-space: pre;" class="moves"></p>
+  <p class="score"></p>
   <button onclick="
     score.wins=0;
     score.losses=0; //set the live score to zero
     score.ties=0;
-    localStorage.removeItem('score'); // and destroy the local storage in case of direct refresh 
+    localStorage.removeItem('score');
+     // and destroy the local storage in case of direct refresh 
+     score_update();
+     document.querySelectorAll('.result, .moves').forEach(element => {element.innerHTML='';});
   ">Reset Score</button>
   <script>
     let score =JSON.parse(localStorage.getItem('score')) || {
@@ -31,6 +37,13 @@
         losses: 0 , // initialize to zero if there no local storage(null)
         ties: 0
       };
+
+      score_update();
+      
+      function score_update() {
+        document.querySelector('.score').innerHTML=`Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+      };
+     
     // set to the local storge even if null
 
     //if (!score) { null --> var not exist
@@ -39,7 +52,8 @@
         //losses: 0 ,  initialize to zero if there no local storage(null)
         //ties: 0
       //};
-    //} 
+    //}
+    
     function compchoise() {
       const rand=Math.random();
       let computerchoise;
@@ -57,44 +71,55 @@
       let result;
       if (playerMove==='Rock') {
           if (computerchoise==='Rock') {
-          result='tie'
+          result='tie.'
         } else if (computerchoise==='Paper') {
-          result='you lost'
+          result='you lost.'
         } else if (computerchoise==='Scissors') {
-          result='you won'
+          result='you won.'
         }
       } else if (playerMove==='Paper') {
           if (computerchoise==='Rock') {
-            result='you won'
+            result='you won.'
           } else if (computerchoise==='Paper') {
-            result='tie'
+            result='tie.'
           } else if (computerchoise==='Scissors') {
-            result='you lost'
+            result='you lost.'
           }
           
       } else if (playerMove==='Scissors') {
         if (computerchoise==='Rock') {
-          result='you lost'
+          result='you lost.'
         } else if (computerchoise==='Paper') {
-          result='you won'
+          result='you won.'
         } else if (computerchoise==='Scissors') {
-          result='tie'
+          result='tie.'
         }
       }
 
-      if (result==='you won') {
+      if (result==='you won.') {
         score.wins++;
-      } else if (result==='you lost') {
+      } else if (result==='you lost.') {
         score.losses++;
-      } else if (result==='tie') {
+      } else if (result==='tie.') {
         score.ties++;
       }
+       
+      score_update();
+
+      document.querySelector('.result')
+      .innerHTML=result;
+
+      document.querySelector('.moves')
+     .innerHTML=`you     VS    computer <br>
+${playerMove}     :     ${computerchoise}`;
 
       localStorage.setItem('score',JSON.stringify(score));
-
+     /*
       alert(`your choise was ${playerMove}, computer choise was ${computerchoise}, ${result}.
 Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
+      */
     } 
+     
   </script>
 </body>
 </html>

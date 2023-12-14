@@ -26,15 +26,20 @@
     localStorage.removeItem('score'); // and destroy the local storage in case of direct refresh 
   ">Reset Score</button>
   <script>
-    let score =JSON.parse(localStorage.getItem('score')) // set to the local storge even if null
-
-    if (score===null) { // null --> var not exist
-      score={
+    let score =JSON.parse(localStorage.getItem('score')) || {
         wins: 0 ,
         losses: 0 , // initialize to zero if there no local storage(null)
         ties: 0
       };
-    }
+    // set to the local storge even if null
+
+    //if (!score) { null --> var not exist
+      //score={
+        //wins: 0 ,
+        //losses: 0 ,  initialize to zero if there no local storage(null)
+        //ties: 0
+      //};
+    //} 
     function compchoise() {
       const rand=Math.random();
       let computerchoise;

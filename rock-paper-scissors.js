@@ -24,40 +24,40 @@ function compchoise() {
 const rand=Math.random();
 let computerchoise;
 if (rand < 1/3) {
-  computerchoise='Rock'
+  computerchoise='rock'
 } else if (rand < 2/3) {
-  computerchoise='Paper'
+  computerchoise='paper'
 } else if (rand < 1) {
-  computerchoise='Scissors'
+  computerchoise='scissors'
 }
 return computerchoise;
 }
 function game(playerMove) {
 const computerchoise=compchoise();
 let result;
-if (playerMove==='Rock') {
-    if (computerchoise==='Rock') {
+if (playerMove==='rock') {
+    if (computerchoise==='rock') {
     result='tie.'
-  } else if (computerchoise==='Paper') {
+  } else if (computerchoise==='paper') {
     result='you lost.'
-  } else if (computerchoise==='Scissors') {
+  } else if (computerchoise==='scissors') {
     result='you won.'
   }
-} else if (playerMove==='Paper') {
-    if (computerchoise==='Rock') {
+} else if (playerMove==='paper') {
+    if (computerchoise==='rock') {
       result='you won.'
-    } else if (computerchoise==='Paper') {
+    } else if (computerchoise==='paper') {
       result='tie.'
-    } else if (computerchoise==='Scissors') {
+    } else if (computerchoise==='scissors') {
       result='you lost.'
     }
     
-} else if (playerMove==='Scissors') {
-  if (computerchoise==='Rock') {
+} else if (playerMove==='scissors') {
+  if (computerchoise==='rock') {
     result='you lost.'
-  } else if (computerchoise==='Paper') {
+  } else if (computerchoise==='paper') {
     result='you won.'
-  } else if (computerchoise==='Scissors') {
+  } else if (computerchoise==='scissors') {
     result='tie.'
   }
 }

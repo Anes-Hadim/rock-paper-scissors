@@ -19,15 +19,15 @@ body{
    margin-right: 10px;
    cursor: pointer;
 }
-.result{
+#result{
   font-size: 25px;
   font-weight: bold;
   margin-top: 45px;
 }
-.score{
+#score{
   margin-top: 50px;
 }
-.reset{
+#reset{
   background-color: white;
   border: none;
   font-size: 15px;

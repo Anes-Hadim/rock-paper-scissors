@@ -7,7 +7,7 @@ let score =JSON.parse(localStorage.getItem('score')) || {
 score_update();
 
 function score_update() {
-  document.querySelector('.score').innerHTML=`Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+  document.getElementById('score').innerHTML=`Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 };
 
 // set to the local storge even if null
@@ -72,10 +72,10 @@ if (result==='you won.') {
  
 score_update();
 
-document.querySelector('.result')
+document.getElementById('result')
 .innerHTML=result;
 
-document.querySelector('.moves')
+document.getElementById('moves')
 .innerHTML=`you <img src="images/${playerMove}-emoji.png" class="icon">   VS   <img src="images/${computerchoise}-emoji.png" class="icon"> computer`;
 
 localStorage.setItem('score',JSON.stringify(score));

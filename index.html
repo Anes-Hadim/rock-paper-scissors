@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="rock-paper-scissors.css">
 </head>
 <body>
-  <p class="title">Rock Paper scissors</p>
+  <p id="title">Rock Paper scissors</p>
   <button class="butt_icon" onclick="
    game('rock');
   ">
@@ -20,10 +20,10 @@
   game('scissors');
   ">
   <img class="icon" src="images/scissors-emoji.png"></button>
-  <p class="result"></p>
-  <p style="white-space: pre;" class="moves"></p>
-  <p class="score"></p>
-  <button class="reset" onclick="
+  <p id="result"></p>
+  <p style="white-space: pre;" id="moves"></p>
+  <p id="score"></p>
+  <button id="reset" onclick="
     score.wins=0;
     score.losses=0; //set the live score to zero
     score.ties=0;

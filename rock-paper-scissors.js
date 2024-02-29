@@ -84,3 +84,19 @@ alert(`your choise was ${playerMove}, computer choise was ${computerchoise}, ${r
 Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
 */
 }
+
+let is_auto_playing=false;
+let interval_id
+
+function autoplay() {
+  if (!is_auto_playing) {
+    interval_id=setInterval(function(){
+      const playermove=compchoise();
+      game(playermove);
+    },1000)
+    is_auto_playing=true
+  } else {
+    clearInterval(interval_id);
+    is_auto_playing=false;
+  }
+}

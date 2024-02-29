@@ -27,7 +27,7 @@ body{
 #score{
   margin-top: 50px;
 }
-#reset{
+#reset,.autoPlay{
   background-color: white;
   border: none;
   font-size: 15px;
